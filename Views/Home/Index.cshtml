@@ -1,0 +1,265 @@
+@model KaraboPortfolio.Models.PortfolioViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div id="top"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <canvas id="nodeCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+        <div class="hero-copy">
+            <p class="hero-kicker">Hi, I'm Karabo Moduto</p>
+            <h1 class="hero-title">Full Stack &amp; Integration Developer</h1>
+            <p class="hero-headline">Building scalable applications, powerful integrations and intelligent digital solutions.</p>
+            <p class="hero-sub">I build modern web applications, backend services, APIs and enterprise integrations that automate processes, connect systems and solve real business problems.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="/cv/Karabo-Moduto-CV.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
+            <div class="hero-social">
+                <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:ko.moduto@gmail.com">Email Me</a>
+            </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="code-window">
+                <div class="code-window-bar">
+                    <span></span><span></span><span></span>
+                    <span class="code-window-title">integration_service.py</span>
+                </div>
+                <pre class="code-window-body"><code><span class="tok-kw">async def</span> <span class="tok-fn">sync_systems</span>(payload):
+    <span class="tok-kw">async with</span> httpx.AsyncClient() <span class="tok-kw">as</span> client:
+        lead = <span class="tok-kw">await</span> client.post(
+            CRM_ENDPOINT, json=payload
+        )
+        <span class="tok-kw">await</span> graph_api.notify(lead)
+        <span class="tok-kw">await</span> whatsapp.send_confirmation(lead)
+    <span class="tok-kw">return</span> {<span class="tok-str">"status"</span>: <span class="tok-str">"synced"</span>}</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-cue"><span></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="section-inner about-grid">
+        <div class="about-copy">
+            <h2 class="section-title">About</h2>
+            <p>Karabo is a Full Stack and Integration Developer with over 5 years of software development experience and more than 14 years across IT support, systems administration and enterprise technology environments.</p>
+            <p>That background means he doesn't just write code &mdash; he understands the infrastructure, enterprise systems and business operations that code has to run on. He specialises in backend development, API design, system integrations, database optimisation, automation, cloud technologies, full-stack applications and enterprise application support.</p>
+        </div>
+        <dl class="about-stats">
+            <div class="stat"><dt>5+</dt><dd>Years Software Development</dd></div>
+            <div class="stat"><dt>14+</dt><dd>Years IT Experience</dd></div>
+            <div class="stat"><dt>40%</dt><dd>Efficiency Improvement Through Automation</dd></div>
+            <div class="stat"><dt>Multiple</dt><dd>Enterprise Integrations</dd></div>
+        </dl>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section-alt" id="skills">
+    <div class="section-inner">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-lede">A stack built across full-stack development, backend engineering and enterprise integration.</p>
+        <div class="skills-grid">
+            @foreach (var cat in Model.SkillCategories)
+            {
+                <div class="skill-card">
+                    <h3>@cat.Name</h3>
+                    <div class="skill-chips">
+                        @foreach (var item in cat.Items)
+                        {
+                            <span class="chip">@item</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="section-inner">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-lede">Select work across backend systems, integrations and automation.</p>
+
+        <div class="project-filters" id="projectFilters">
+            <button class="filter-btn is-active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="C#">C# / .NET</button>
+            <button class="filter-btn" data-filter="Python">Python</button>
+            <button class="filter-btn" data-filter="REST API">Integrations</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+            @for (int i = 0; i < Model.Projects.Count; i++)
+            {
+                var p = Model.Projects[i];
+                <article class="project-card" data-tech="@string.Join(",", p.Tech)" data-project-index="@i" tabindex="0">
+                    <div class="project-card-head">
+                        <h3>@p.Title</h3>
+                        <div class="project-tech">
+                            @foreach (var t in p.Tech)
+                            {
+                                <span class="tech-pill">@t</span>
+                            }
+                        </div>
+                    </div>
+                    <p class="project-desc">@p.Description</p>
+                    @if (!string.IsNullOrEmpty(p.Architecture))
+                    {
+                        <p class="project-arch">@p.Architecture</p>
+                    }
+                    <div class="project-actions">
+                        <a href="@p.DemoUrl" class="btn btn-small btn-outline">View Project</a>
+                        <a href="@p.CodeUrl" class="btn btn-small btn-ghost">View Code</a>
+                        <button type="button" class="btn btn-small btn-ghost project-details-btn" data-project-index="@i">Details</button>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Project modal -->
+<div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <ul id="modalHighlights" class="modal-highlights"></ul>
+    </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section section-alt" id="experience">
+    <div class="section-inner">
+        <h2 class="section-title">Experience</h2>
+        <ol class="timeline">
+            @foreach (var job in Model.Experience)
+            {
+                <li class="timeline-item @(job.Expanded ? "" : "is-compact")">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-head">
+                            <h3>@job.Role</h3>
+                            <span class="timeline-period">@job.Period</span>
+                        </div>
+                        <p class="timeline-company">@job.Company</p>
+                        <ul>
+                            @foreach (var r in job.Responsibilities)
+                            {
+                                <li>@r</li>
+                            }
+                        </ul>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+</section>
+
+<!-- CAREER JOURNEY -->
+<section class="section" id="journey">
+    <div class="section-inner">
+        <h2 class="section-title">Career Journey</h2>
+        <p class="section-lede">From IT infrastructure and support into software engineering and integration development.</p>
+        <div class="journey-track">
+            @for (int i = 0; i < Model.CareerJourney.Count; i++)
+            {
+                <div class="journey-stage">
+                    <span class="journey-dot"></span>
+                    <span class="journey-label">@Model.CareerJourney[i].Label</span>
+                </div>
+                if (i < Model.CareerJourney.Count - 1)
+                {
+                    <div class="journey-connector"></div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section section-alt" id="achievements">
+    <div class="section-inner">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-grid">
+            @foreach (var a in Model.Achievements)
+            {
+                <div class="achievement-card">
+                    <span class="achievement-icon" data-icon="@a.Icon"></span>
+                    <h3>@a.Title</h3>
+                    <p>@a.Description</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+    <div class="section-inner">
+        <h2 class="section-title">Certifications</h2>
+        <ul class="cert-list">
+            @foreach (var c in Model.Certifications)
+            {
+                <li>@c.Name</li>
+            }
+        </ul>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section section-alt" id="education">
+    <div class="section-inner">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            @foreach (var e in Model.Education)
+            {
+                <div class="education-card">
+                    <h3>@e.Qualification</h3>
+                    <p>@e.Institution</p>
+                    <span>@e.Year</span>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+    <div class="section-inner contact-grid">
+        <div class="contact-copy">
+            <h2 class="section-title">Let's Build Something Great</h2>
+            <p>Whether you're looking for a developer to build a new application, integrate existing systems, automate business processes or improve an existing platform, let's talk.</p>
+            <div class="contact-details">
+                <a href="mailto:ko.moduto@gmail.com">ko.moduto@gmail.com</a>
+                <a href="tel:0764331211">076 433 1211</a>
+                <span>Midrand, Gauteng, South Africa</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#contact-form" class="btn btn-primary">Get In Touch</a>
+                <a href="/cv/Karabo-Moduto-CV.pdf" class="btn btn-outline" download>Download CV</a>
+            </div>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required />
+
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required />
+
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+    </div>
+</section>

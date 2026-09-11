@@ -1,0 +1,13 @@
+@model KaraboPortfolio.Controllers.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+<section class="section" style="min-height:60vh;display:flex;align-items:center;">
+    <div class="section-inner">
+        <h2 class="section-title">Something went wrong.</h2>
+        @if (Model?.ShowRequestId == true)
+        {
+            <p class="section-lede">Request ID: <code>@Model.RequestId</code></p>
+        }
+    </div>
+</section>
