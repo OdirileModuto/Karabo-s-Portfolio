@@ -28,3 +28,4 @@ C:\Users\User\Documents\GitHub\Karabo-s-Portfolio\obj\Debug\net8.0\refint\Karabo
 C:\Users\User\Documents\GitHub\Karabo-s-Portfolio\obj\Debug\net8.0\KaraboPortfolio.pdb
 C:\Users\User\Documents\GitHub\Karabo-s-Portfolio\obj\Debug\net8.0\KaraboPortfolio.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\Karabo-s-Portfolio\obj\Debug\net8.0\ref\KaraboPortfolio.dll
+C:\Users\User\Documents\GitHub\Karabo-s-Portfolio\obj\Debug\net8.0\KaraboPortfolio.sourcelink.json

@@ -131,7 +131,8 @@ namespace KaraboPortfolio.Controllers
                          "Provided support for network and server infrastructure.",
                          
                          
-                          }, Expanded = false },
+                          }, },
+
                     new() { Role = "Senior Desktop Engineer", Company = "QIM Solutions", Period = "Jul 2014 - Jun 2017",
                             Responsibilities = new() {
                                  "Led desktop engineering and technical support operations.",
@@ -142,7 +143,7 @@ namespace KaraboPortfolio.Controllers
                                  "Provided training and support to end-users on desktop systems and applications.",
                                  "Ensured compliance with IT policies and best practices."
                                  
-                        }, Expanded = false },
+                        }, },
 
                     new() { Role = "Support & Operations Assistant", Company = "Sanitech", Period = "Nov 2012 - Nov 2014",
                             Responsibilities = new() {
@@ -155,7 +156,7 @@ namespace KaraboPortfolio.Controllers
                                  "Provided general administrative support to the operations team."
 
 
-                                  }, Expanded = false },
+                                  }, },
 
                     new() { Role = "Web Administrator", Company = "KPT Marketing Solutions", Period = "Nov 2010 - Apr 2012",
                             Responsibilities = new() {
@@ -171,7 +172,7 @@ namespace KaraboPortfolio.Controllers
                                  "Conducted regular website audits to identify and resolve technical issues.",
                                  "Stayed updated with the latest web technologies and industry trends."
                                  
-                                 }, Expanded = false },
+                                 }, },
                 },
 
                 Achievements = new List<Achievement>
