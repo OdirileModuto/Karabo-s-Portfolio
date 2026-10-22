@@ -208,6 +208,10 @@ namespace KaraboPortfolio.Controllers
                     new() { Name = "Python Essentials" },
                     new() { Name = "JavaScript Essentials" },
                     new() { Name = "C# .NET with MS SQL" },
+                    new() { Name = "AI for Data Analysis" },
+                    new() { Name = "Data Privacy and Protection Officer" },
+                    new() { Name = "AI Engineering" },
+                    new() { Name = "Networking Fundamentals" },
                 },
 
                 Education = new List<EducationItem>

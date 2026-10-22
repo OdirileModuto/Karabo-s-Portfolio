@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj": {}
+    "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj": {
+    "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj",
         "projectName": "KaraboPortfolio",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Karabo-s-Portfolio\\KaraboPortfolio.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Karabo-s-Portfolio\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Karabo-s-Portfolio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,7 +26,6 @@
         },
         "frameworks": {
           "net8.0": {
-            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -41,11 +40,10 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -66,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
